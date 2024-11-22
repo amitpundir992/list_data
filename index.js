@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
-import { connectDB } from "./db/db.js";
+import { connectDB } from "./src/db/db.js";
 import express from "express";
-import { Data } from "./models/user.model.js";
+import { Data } from "./src/models/user.model.js";
 
 const app = express();
 
