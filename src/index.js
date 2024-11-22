@@ -1,14 +1,23 @@
 import dotenv from "dotenv";
 import { connectDB } from "./db/db.js";
-import app from "./app.js";
+import express from "express";
+import { Data } from "./models/user.model.js";
+
+const app = express();
+
 
 dotenv.config({
   path: "./.env",
 });
 
-// app.get("/", (req, res) => {
-//   res.send("hello let's get back");
-// });
+app.get("/get-data", async (req, res) => {
+  try {
+    const allUsers = await Data.find(); 
+    res.status(200).json(allUsers);
+  } catch (error) {
+    console.log(error);   
+  }
+});
 
 connectDB()
   .then(() => {
