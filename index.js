@@ -54,18 +54,15 @@ app.use(express.urlencoded({ extended : false }))    // helps in taking req.body
 
 
 
-// app.get("/get-data", async (req, res) => {
-//   try {
-//     const allUsers = await Data.find(); 
-//     res.status(200).json(allUsers);
-//   } catch (error) {
-//     console.log(error);   
-//   }
-// });
+app.get("/get-data", async (req, res) => {
+  try {
+    const allUsers = await Data.find(); 
+    res.status(200).json(allUsers);
+  } catch (error) {
+    console.log(error);   
+  }
+});
 
-app.use("/",(req,res)=>{
-  res.json({message:"hello"})
-})
-
+ 
 app.listen(PORT, () => console.log(`Server started at port: ${PORT}`));
  
